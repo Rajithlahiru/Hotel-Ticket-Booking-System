@@ -27,13 +27,13 @@ and open the template in the editor.
     <form>
     <div class="form">
       <div class="inputfield">
-          <a href="memberretrieve.jsp" class="btn" style="margin-top: 15px;">Member Details</a>
+          <a href="{% url 'user_list' %}" class="btn" style="margin-top: 15px;">Member Details</a>
       </div>
       <div class="inputfield">
-            <a href="feedbackretrieve.jsp" class="btn" style="margin-top: 15px;">Member Feedbacks</a>
+            <a href="{% url 'feedback_list' %}" class="btn" style="margin-top: 15px;">Member Feedbacks</a>
       </div>
       <div class="inputfield">
-          <a href="reservationretrieve.jsp" class="btn" style="margin-top: 15px;">Reservations</a>
+          <a href="{% url 'booking_list' %}" class="btn" style="margin-top: 15px;">Reservations</a>
       </div>
       <div class="inputfield">
           <a href="index.html" class="btnn" style="margin-top: 30px;">Logout</a>

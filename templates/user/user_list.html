@@ -17,18 +17,18 @@ and open the template in the editor.
 
     </head>
     <body>
-        <nav>
+        <nav class="ft">
             <div class="logo">
                 <h4>The New View</h4>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html" style="color:white;">Home</a></li>
-                <li><a href="booking.html" style="color:white;">Booking</a></li>
-                <li><a href="facilities.html" style="color:white;">Facilities</a></li>
-                <li><a href="feedback.html" style="color:white;">Feedback</a></li>
-                <li><a href="gallery.html" style="color:white;">Gallery</a></li>
-                <li><a href="signup.html" style="color:white;">Signup</a></li>
-                <li><a href="" style="color:white;">User</a></li>          
+                <li><a href="{% url 'index' %}" style="color:White;">Home</a></li>
+                <li><a href="{% url 'booking_insert' %}" style="color:White;">Booking</a></li>
+                <li><a href="{% url 'facilities' %}" style="color:White;">Facilities</a></li>
+                <li><a href="{% url 'feedback_insert' %}" style="color:White;">Feedback</a></li>
+                <li><a href="{% url 'gallery' %}" style="color:White;">Gallery</a></li>
+                <li><a href="{% url 'user_signup' %}" style="color:White;">Signup</a></li>
+                
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -41,8 +41,11 @@ and open the template in the editor.
     <div class="container-fluid pt-4 px-4">
         <div class="container">
         
-        <a href="{% url 'user_insert' %}" class="btn btn-outline-success">
+        <a href="{% url 'user_insert' %}" class="btn btn-outline-success float-left">
             <i class="fas fa-plus"></i> Add New
+        </a>
+        <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary float-right">
+             Dashboard
         </a>
         <br><br>
         

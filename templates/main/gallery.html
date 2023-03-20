@@ -14,22 +14,22 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <nav>
+        <nav class="ft">
             <div class="logo">
                 <h4>The New View</h4>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html" style="color:white;">Home</a></li>
-                <li><a href="booking.html" style="color:white;">Booking</a></li>
-                <li><a href="facilities.html" style="color:white;">Facilities</a></li>
-                <li><a href="feedback.html" style="color:white;">Feedback</a></li>
-                <li><a href="" style="color:white;">Gallery</a></li>
-                <li><a href="signup.html" style="color:white;">Signup</a></li>
+                <li><a href="{% url 'index' %}" style="color:White;">Home</a></li>
+                <li><a href="{% url 'booking_insert' %}" style="color:White;">Booking</a></li>
+                <li><a href="{% url 'facilities' %}" style="color:White;">Facilities</a></li>
+                <li><a href="{% url 'feedback_insert' %}" style="color:White;">Feedback</a></li>
+                <li><a href="{% url 'gallery' %}" style="color:White;">Gallery</a></li>
+                <li><a href="{% url 'user_signup' %}" style="color:White;">Signup</a></li>
                 <li>
                     <select onchange="location = this.value;" style="background: rgba(0, 0, 0, 0); color: white; margin-left: 15px; border: rgba(0, 0, 0, 0); text-decoration: none; letter-spacing: 3px; font-weight: bold; font-size: 14px;">
                         <option value="">Login</option>
-                        <option value="login.html" style="color: black;">User</option>  
-                        <option value="adminlogin.html" style="color: black;">Admin</option>
+                        <option value="{% url 'user_login' %}" style="color: black;">User</option>  
+                        <option value="{% url 'adminlogin' %}" style="color: black;">Admin</option>
                     </select>
                 </li>
             </ul>
