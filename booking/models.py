@@ -6,8 +6,8 @@ class Booking_detail(models.Model):
     id = models.AutoField(primary_key=True)
     email = models.EmailField(verbose_name="email", max_length=60, unique=True)
     name = models.CharField(max_length=50)
-    checking_date = models.DateField(default=datetime.now) 
-    checkout_date = models.DateField(null=False)
+    checking_date = models.CharField(max_length=50) 
+    checkout_date =models.CharField(max_length=50)
     room = models.CharField(max_length=50)
     mobile_no = models.CharField(max_length=15)
 

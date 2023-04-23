@@ -24,4 +24,10 @@ urlpatterns = [
     path('', include('main.urls')),
     path('feedbacks/', include('feedback.urls')),
     path('booking/', include('booking.urls')),
+
+     #REST FRAMEWORK URLS
+    path('api/auth/', include('authentication.urls')),
 ]
+
+
+

@@ -3,13 +3,44 @@ from multiprocessing import context
 from django.shortcuts import redirect, render
 from .forms import UserForm
 from .models import User
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 
 # Create your views here.
 def user_login(request):
-    return render(request, 'user/login.html')
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-def user_signup(request):
-    return render(request, 'user/signup.html')
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+        else:
+            messages.info(request, 'invalid')
+            return redirect('user_login')
+
+    else:
+        return render(request, 'user/login.html')
+
+def user_signup(request, id=0):
+    if request.method == "GET":
+        if id==0:
+            form = UserForm()
+        else:
+            user = User.objects.get(pk=id)
+            form = UserForm(instance=user)
+        return render(request, 'user/signup.html', {'form':form})
+    else:
+        if id==0:
+            form = UserForm(request.POST)
+        else:
+            user = User.objects.get(pk=id)
+            form = UserForm(request.POST,instance=user)
+        if form.is_valid():
+            form.save()
+        return redirect('/')
 
 
 # CRUD

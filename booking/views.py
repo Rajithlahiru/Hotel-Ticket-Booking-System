@@ -22,12 +22,30 @@ def booking_list(request):
 
 def booking_form(request, id=0):
     if request.method == "GET":
+        single_room = 5
+        single_room_book_count = Booking_detail.objects.filter(room ="single").count()
+        remaining_single_room = single_room - single_room_book_count
+
+        double_room = 5
+        double_room_book_count = Booking_detail.objects.filter(room ="double").count()
+        remaining_double_room = double_room - double_room_book_count
+
+        king_room = 5
+        king_room_book_count = Booking_detail.objects.filter(room ="king").count()
+        remaining_king_room = king_room - king_room_book_count
+        
         if id==0:
             form = BookingForm()
         else:
             booking = Booking_detail.objects.get(pk=id)
             form = BookingForm(instance=booking)
-        return render(request, 'booking/booking_form.html', {'form':form})
+        context = {
+            'remain_single': remaining_single_room,
+            'remain_double': remaining_double_room,
+            'remain_king': remaining_king_room,
+            'form':form
+        }
+        return render(request, 'booking/booking_form.html',context)
     else:
         if id==0:
             form = BookingForm(request.POST)

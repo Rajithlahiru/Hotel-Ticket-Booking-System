@@ -16,6 +16,18 @@ and open the template in the editor.
         
     </head>
     <body>
+        <script>
+            const api_url = 'http://127.0.0.1:8000/api/auth/register/'
+            async function user_signup(){
+                const response = await fetch(api_url);
+                const data = await response.json();
+                console.log(data);
+            }
+            user_signup();
+        </script>
+
+
+
         <nav class="ft">
             <div class="logo">
                 <h4>The New View</h4>
@@ -35,65 +47,20 @@ and open the template in the editor.
                 <div class="line3"></div>
             </div>
         </nav>
-    <div class="wrapper">
-    <div class="title">
-      Signup
-    </div>
-        <form name="signup" method="post" action="./register">
-    <div class="form">
-       <div class="inputfield">
-          <label>Username</label>
-          <input type="text" name="uname" class="input">
-       </div>  
-        <div class="inputfield">
-          <label>First Name</label>
-          <input type="text" name="fname" class="input">
-       </div>
-       <div class="inputfield">
-          <label>Last Name</label>
-          <input type="text" name="lname" class="input">
-       </div> 
-       <div class="inputfield">
-          <label>NIC Number</label>
-          <input type="text" name="nic" class="input">
-       </div>  
-      <div class="inputfield">
-          <label>Address</label>
-          <input type="text" name="address" class="input">
-       </div> 
-        <div class="inputfield">
-          <label>Gender</label>
-          <input type="text" name="gender" class="input">
-       </div>
-        <div class="inputfield">
-          <label>Phone</label>
-          <input type="text" name="phone" class="input">
-       </div> 
-      <div class="inputfield">
-          <label>Email</label>
-          <input type="email" name="email" class="input">
-       </div> 
-      <div class="inputfield">
-          <label>Nationality</label>
-          <input type="text" name="nationality" class="input">
-       </div> 
-      <div class="inputfield">
-          <label>Password</label>
-          <input type="password" name="pass" class="input">
-       </div>
-       <div class="inputfield">
-          <label>Confirm Password</label>
-          <input type="password" name="cpass" class="input">
-       </div>
-      <div class="inputfield">
-          <input onclick="validation()" type="submit" value="Register" class="btn">
-      </div>
-      <div class="inputfield">
-          <a href="login.html" class="btnn">Click here to Login</a>
-      </div>
-    </div>
-    </form>
-    </div>
+        <div class="wrapper">
+            <div class="title">
+              Signup
+            </div>
+            <form action="" method="post" autocomplete="off">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="row">
+                    <div class="col-md-8">
+                        <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-database"></i> Submit</button>
+                    </div>
+                </div>
+            </form>
+            </div>
         <div class="footer">
         <div class="footer-content">
             <h3>The New View</h3>
